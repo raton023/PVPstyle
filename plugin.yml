@@ -1,6 +1,10 @@
-name: PVP_Tool
+name: PVPTool
 main: com.craftilandia.pvpstyle.Main
 version: 1.0
 commands:
     pvp:
         description: Toogle PvP in world.
+permissions:
+    pvptool.set:
+        description: To toogle pvp in world.
+        default: op
