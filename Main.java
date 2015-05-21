@@ -45,6 +45,7 @@ public boolean onCommand(CommandSender sender, Command command,
 		String label, String[] args) {
 if(sender instanceof Player){
 	Player p = (Player)sender;
+	if(p.hasPermission("pvptool.set")){
 	if(command.getName().equalsIgnoreCase("pvp")){
 		if(p.getWorld().getPVP() == true){
 			p.getWorld().setPVP(false);
@@ -53,5 +54,5 @@ if(sender instanceof Player){
 		if(p.getWorld().getPVP() == false){
 			p.getWorld().setPVP(true);
 			Bukkit.broadcastMessage("PvP Activated");
-			return true;}}}return false;}
+			return true;}}}}return false;}
 }
