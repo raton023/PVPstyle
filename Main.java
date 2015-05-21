@@ -1,14 +1,16 @@
 package com.craftilandia.pvpstyle;
 import java.util.List;
-import net.minecraft.server.v1_7_R4.ChatSerializer;
-import net.minecraft.server.v1_7_R4.EntityPlayer;
-import net.minecraft.server.v1_7_R4.IChatBaseComponent;
-import net.minecraft.server.v1_7_R4.PacketPlayOutChat;
+
+import net.minecraft.server.v1_8_R2.EntityPlayer;
+import net.minecraft.server.v1_8_R2.IChatBaseComponent;
+import net.minecraft.server.v1_8_R2.IChatBaseComponent.ChatSerializer;
+import net.minecraft.server.v1_8_R2.PacketPlayOutChat;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_8_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -35,7 +37,7 @@ public class Main extends JavaPlugin implements Listener{
 	e.setDeathMessage(null);
 	String JSON = "{\"text\":\"§f" + e.getEntity().getKiller().getDisplayName() + " §4killed §f" + e.getEntity().getDisplayName() + " §4Using §r\",\"extra\":[{\"text\":\"§r " + itemname + " §r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"" + itemname + "\n" + enchants + "\"}}]}";
     IChatBaseComponent msg = ChatSerializer.a(JSON);
-    PacketPlayOutChat packet = new PacketPlayOutChat(msg, true);
+    PacketPlayOutChat packet = new PacketPlayOutChat(msg);
     List<Player> players = e.getEntity().getWorld().getPlayers();
     for(int i = 0; i < players.size() ; i++){
     EntityPlayer nmsPlayer = ((CraftPlayer) players.get(i).getPlayer()).getHandle();
