@@ -1,0 +1,6 @@
+name: PVP_Tool
+main: com.craftilandia.pvpstyle.Main
+version: 1.0
+commands:
+    pvp:
+        description: Toogle PvP in world.
